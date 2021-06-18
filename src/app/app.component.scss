@@ -1,0 +1,34 @@
+.container{
+    display: grid;
+    grid-template-rows: 200px 400px 200px auto auto;
+    background-color: green;
+
+    .header{
+        background-color: white;
+        .topBar{
+            height: 40px;
+            background-color: orange;
+        }
+        .flexHeader{
+            display: flex;
+            flex-direction: row;
+        .primaryHeading{
+            font-size: 50px;
+            // display: inline;
+            // width: 60%;
+            // margin: 5% 20%;
+        }
+        .emblem{
+            float: left;
+            } 
+         .ndrLogo{
+             margin-left: auto;
+         }   
+    }
+}
+     .secondDiv{
+         background-color: orchid;
+         
+     }
+
+}
