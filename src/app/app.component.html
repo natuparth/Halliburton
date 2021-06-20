@@ -1,32 +1,55 @@
-<div class="container">
+<div class="container1">
   <div class="header">
-    <div class="topBar"> Date bar</div>
-    <div class="flexHeader">
-    <div class="emblem"><img src="../assets/emblem.jpg" height="160px" width="140px"></div>
-    <div class="primaryHeading">NATIONAL DATA REPOSITORY</div>
-    <div class="ndrLogo"><img src="../assets/NDR.jpg" height="160px" width="140px"></div>
-    </div> 
+    <div class="topBar">
+      {{date | date: 'full'}}
+      <div class="langSelector">
+        <div>
+          <img [src]="selectedCountry.icon">
+        </div>
+        <div>{{selectedCountry.name}}</div>
+        <div style="display:grid; margin-left: 20px;">
+          <i class="fa fa-caret-up" style="color: gray;" (click)="changeCountry(1)"></i>
+          <i class="fa fa-caret-down" style="color: gray; margin-top: -5px" (click)="changeCountry(-1)"></i>
+
+        </div>
+      </div>
+
+    </div>
+    <div class="flexHeader text-center">
+      <div class="emblem"><img src="../assets/emblem.jpg" height="100px" width="100px"></div>
+      <div class="primaryHeading text-center">
+        <p>NATIONAL DATA REPOSITORY</p>
+        <p class="subHeading">Directorate General of Hydrocarbons(DGH)</p>
+        <p class="subHeading">Ministry of Petroleum and Natural Gas, Government of India</p>
+      </div>
+      <div class="ndrLogo"><img src="../assets/NDR.jpg" height="100px" width="100px"></div>
+    </div>
   </div>
 
   <div class="secondDiv">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="padding-left: 20px;">
+
+    <nav class="navbar sticky-top navbar-expand navbar-light bg-light"
+      style="padding:5px 0 5px 20px; border: 1px solid #d0d4d9; ">
       <a class="navbar-brand" href="#">Home</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li ngbDropdown class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" ngbDropdownToggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" ngbDropdownToggle
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Download
             </a>
             <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" ngbDropdownItem href="#">Download data price list and policies</a>
-              
+
             </div>
           </li>
           <li ngbDropdown class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" ngbDropdownToggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" ngbDropdownToggle
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Important Links
             </a>
             <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink">
@@ -35,40 +58,237 @@
               <a class="dropdown-item" ngbDropdownItem href="#">Something else here</a>
             </div>
           </li>
-          <li   ngbDropdown class="nav-item dropdown" (mouseenter)="$event.stopPropagation(); myDrop.toggle();">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" ngbDropdownToggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <li ngbDropdown class="nav-item dropdown" (mouseenter)="$event.stopPropagation(); myDrop.toggle();">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" ngbDropdownToggle
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Login
             </a>
             <div #myDrop class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" ngbDropdownItem href="#">Login</a>
               <a class="dropdown-item" ngbDropdownItem href="#">Forgot/Reset Password</a>
-             
+
             </div>
           </li>
           <li ngbDropdown class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" ngbDropdownToggle data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Help
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" ngbDropdownToggle
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Help
             </a>
             <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" ngbDropdownItem href="#">How to Register</a>
-              
+
             </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Register</a>
           </li>
-          
-          <form class="form-inline ms-auto" style="display: flex; margin-left: 50px !important">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+          <form class="form-inline ms-auto" style="display: flex; margin-left: 50px !important; align-items: center;">
+            <input class="form-control mr-sm-1" style="height: 30px;" type="search" placeholder="Search"
+              aria-label="Search">
+            <p style="margin: 0 0 0 -25px; cursor: pointer;"><i class="fa fa-search fa-sm ml-1">
+              </i></p>
           </form>
 
-          <li class="nav-item ms-auto">
+          <li class="nav-item" style="margin-left: auto;">
             <a class="nav-link" href="#">Contact Us</a>
           </li>
         </ul>
       </div>
     </nav>
+    <div class="secondDivInternal">
+      <div class="upcomingEvents">
+        <div class="card" style="height: 100%;">
+          <div class="card-header text-center">
+            <h6 class="card-title">Upcoming Events</h6>
+          </div>
+          <div class="card-body">
+            <marquee direction="up" height="150px" scrollDelay="300">
+              <ul class="card-text" style="list-style: none;">
+                <li>Format for confidentiality agreement (CA) has been revised. Kindly submit CA in the latest format
+                  against your future data orders. </li>
+                <li> 2D seismic data of NSP_SECTOR-3_CUDDAPAH acquired under National Seismic Programme (NSP) is now
+                  available for sale through NDR.” </li>
+                <li>"2D seismic data of Sector-1_Assam_Arunachal acquired under National Seismic Programme (NSP) is now
+                  available for sale through NDR portal
+                <li>Revised NDR price list including the reports of “Re-assessment of Hydrocarbon Resources for
+                  Sedimentary Basins & Deep Water Areas of India – 2017” and “National Seismic Programme (NSP)” data is
+                  available “ Price list reference for NDR data sale ” </li>
+                <li>International Petroleum Industry Practices – 2016 </li>
+
+              </ul>
+            </marquee>
+          </div>
+
+        </div>
+      </div>
+      <div class="imageCarousel">
+        <!-- <carousel [width]="300" [cellsToShow]="1"
+        [images]="images">
+    </carousel> -->
+        <ngb-carousel *ngIf="images">
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img [src]="images[0]" alt="Random first slide">
+            </div>
+            <div class="carousel-caption caption-override">
+              <p>Contributing towards India's Energy Independence</p>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img [src]="images[1]" alt="Random second slide">
+            </div>
+            <div class="carousel-caption caption-override">
+
+              <p>Safeguarding National E&P Data</p>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img [src]="images[2]" alt="Random third slide">
+            </div>
+            <div class="carousel-caption caption-override">
+
+              <p>Facilitating global E&P Investors</p>
+            </div>
+          </ng-template> 
+        </ngb-carousel>
+      </div>
+      <div class="aboutUs">
+        <div class="card" style="height: 100%;">
+          <div class="card-header text-center">
+            <h6 class="card-title">About NDR</h6>
+          </div>
+          <span id="word-carousel" class="card-text" style=" padding: 0 10px" [@fadeAnimation]="toogle"
+            (@fadeAnimation.done)="nextWord($event)">{{wordCarousel[wordCounter]}}</span>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+  <div class="buttonsDiv">
+    <div class="buttonCard">About NDR</div>
+    <div class="buttonCard">Objective</div>
+    <div class="buttonCard">Operational Model</div>
+    <div class="buttonCard">Technology</div>
+    <div class="buttonCard">Salient features of NDR</div>
+    <div class="buttonCard">Policies & Guidelines</div>
+    <div class="buttonCard">Sedimentary Basins of India</div>
+    <div class="buttonCard">Maps & Statistics</div>
+
+  </div>
+  <div class="pictureGallery">
+    <div class="technicalArticles">
+      <div class="card" style="height: 100%;">
+        <div class="card-header text-center">
+          <h6 class="card-title">Technical Articles</h6>
+        </div>
+        <div class="card-body">
+          <marquee direction="up" height="150px" scrollDelay="300">
+            <ul class="card-text" style="list-style: none;">
+              <li>DATA GENERATION for HYDROCARBONS in Indian Sedimentary Basins </li>
+              <li> DGH Activity reports </li>
+            </ul>
+          </marquee>
+        </div>
+
+      </div>
+    </div>
+    <div class="gallery card" style="flex:1">
+      <div class="card-header text-center">
+        <h6 class="card-title">From the Archives</h6>
+      </div>
+      <ngb-carousel *ngIf="images">
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="archives[0]" alt="Random first slide">
+          </div>
+
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="archives[1]" alt="Random second slide">
+          </div>
+
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="archives[2]" alt="Random third slide">
+          </div>
+
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="archives[3]" alt="Random first slide">
+          </div>
+
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="archives[4]" alt="Random first slide">
+          </div>
+
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="archives[5]" alt="Random first slide">
+          </div>
+
+        </ng-template>
+        <ng-template ngbSlide>
+          <div class="picsum-img-wrapper">
+            <img [src]="archives[6]" alt="Random first slide">
+          </div>
+
+        </ng-template>
+
+      </ngb-carousel>
+    </div>
+    <div class="technicalArticles">
+      <div class="card" style="height: 100%;">
+        <div class="card-header text-center"><h6 class="card-title">View, Select & Purchase E&P Data</h6>
+        </div> 
+          <div class="card-body text-center">
+            <img src="../assets/map.jpg" width="200px" height="170px" >
+        </div>
+        
+      </div>
+      </div>
+  </div>
+
+
+
+  <div class="footer">
+    <div class="leftfooter">
+      <p>© 2015 Directorate General of Hydrocarbons (DGH) | All Rights Reserved</p>
+      <label>visitor No:</label>
+      <p style="background-color: black;color: white;">
+        &nbsp;0&nbsp;0&nbsp;0&nbsp;3&nbsp;8&nbsp;6&nbsp;8&nbsp;6&nbsp;7&nbsp;</p>
+      <p>Last Updated - Thursday 22nd April 2021</p>
+    </div>
+    <div class="rightfooter">
+      <div class="rightfooterlinks"><a href="">Home | </a>
+        <a href="">Archives | </a>
+        <a href="">Disclaimer | </a>
+        <a href="">Photo | </a>
+        <a href="">Gallery | </a>
+        <a href="">Site | </a>
+        <a href="">Map | </a>
+        <a href="">Help | </a>
+        <a href="">Contact Us | </a>
+      </div>
+      <div class="rightfootercontent">Content owned & provided by National Data Repository, Directorate General of
+        Hydrocarbons(DGH), MoPNG, Government of India
+        <br>
+        <br>
+        This site is best viewed using current versions of Firefox v.37.0 or above, Chrome v.42.0 or above, Safari
+        v.5.1.7 or above or Microsoft Internet Explorer v.10.0 or above at a screen resolution of 1024 x 768 or higher.
+      </div>
+    </div>
+
   </div>
 
 </div>
